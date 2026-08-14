@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northern Soul | ข้าวซอยโฮมเมด</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FBF9F5;
+            --card-bg: #FFFFFF;
+            --primary-color: #8C6D53;
+            --accent-color: #D4A373;
+            --text-main: #4A403A;
+            --text-muted: #8C827A;
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: var(--bg-color);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Menu Card */
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(140, 109, 83, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(140, 109, 83, 0.1);
+        }
+
+        .menu-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #EFECE6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-img-container img {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .menu-name {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .menu-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .menu-ingredients {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .menu-ingredients span {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Order Button */
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order:hover {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #F4F1EA;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Northern Soul</h1>
+        <p>ข้าวซอยโฮมเมด รสชาติกลมกล่อม ในบรรยากาศอบอุ่นเป็นกันเอง</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">เมนูแนะนำของเรา</h2>
+        
+        <div class="menu-grid">
+            
+            <!-- Menu 1 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <!-- ใช้รูปตัวอย่างสไตล์มินิมอลจาก Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยน่องไก่">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยน่องไก่ตุ๋น</span>
+                        <span class="menu-price">89.-</span>
+                    </div>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> น่องไก่ติดสะโพกตุ๋นจนเปื่อยนุ่ม, บะหมี่เหลืองกรอบและเส้นนุ่ม, น้ำแกงกะทิเข้มข้นสูตรพิเศษ, เครื่องเคียง (หอมแดง, ผักกาดดอง, มะนาว, พริกทอด)
+                    </div>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
+                </div>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเนื้อย่างออสเตรเลีย">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยเนื้อย่างมีเดียมแรร์</span>
+                        <span class="menu-price">139.-</span>
+                    </div>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> เนื้อน่องลายสไลด์ย่างหอมๆ, เส้นข้าวซอยสูตรต้นตำรับ, น้ำแกงเข้มข้นกลิ่นเครื่องเทศชัดเจน, ไข่ต้มยางมะตูม, เครื่องเคียงครบชุด
+                    </div>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
+                </div>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเต้าหู้เห็ดรวม">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยเต้าหู้เห็ดรวม (Vegan)</span>
+                        <span class="menu-price">79.-</span>
+                    </div>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> เต้าหู้คานาอิโมะย่าง, เห็ดออรินจิและเห็ดชิเมจิผัดหอม, น้ำแกงสูตร Plant-based เข้มข้นกลมกล่อม, เส้นบะหมี่ผัก
+                    </div>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Northern Soul Cafe & Eatery. Open Daily 10.00 - 20.00</p>
+    </footer>
+
+</body>
+</html>
