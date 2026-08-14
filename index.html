@@ -3,207 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lanna Eats | ข้าวซอยเชียงใหม่สไตล์มินิมอล</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Prompt -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Northern Soul | ข้าวซอยโฮมเมด</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            bg: '#FDFBF7',      /* สีพื้นหลังครีมอุ่น */
-                            card: '#FFFFFF',    /* สีการ์ดขาว */
-                            primary: '#C87D55', /* สีส้มชาไทย/ดินเผา */
-                            secondary: '#6E8566',/* สีเขียวชาเขียว/มินิมอล */
-                            text: '#2C2A29',    /* สีตัวอักษรเทาเข้ม */
-                            muted: '#8C857B'   /* สีข้อความรอง */
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Prompt', 'sans-serif'],
-                    }
-                }
-            }
+    <style>
+        :root {
+            --bg-color: #FBF9F5;
+            --card-bg: #FFFFFF;
+            --primary-color: #8C6D53;
+            --accent-color: #D4A373;
+            --text-main: #4A403A;
+            --text-muted: #8C827A;
+            --border-radius: 16px;
         }
-    </script>
-</head>
-<body class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-brand-bg/90 backdrop-blur-md border-b border-stone-200/60">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-semibold tracking-wider text-brand-primary">
-                LANNA EATS<span class="text-xs ml-2 font-normal text-brand-muted">Chiang Mai</span>
-            </a>
-            <div class="flex items-center gap-4 text-sm font-medium">
-                <a href="#menu" class="hover:text-brand-primary transition-colors">เมนู</a>
-                <a href="#about" class="hover:text-brand-primary transition-colors">เกี่ยวกับเรา</a>
-                <a href="#contact" class="bg-brand-primary text-white px-4 py-2 rounded-full hover:opacity-90 transition-opacity">พิกัดร้าน</a>
-            </div>
-        </div>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background-color: var(--bg-color);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Menu Card */
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(140, 109, 83, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(140, 109, 83, 0.1);
+        }
+
+        .menu-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #EFECE6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-img-container img {
+            transform: scale(1.05);
+        }
+
+        .menu-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .menu-name {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .menu-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .menu-ingredients {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .menu-ingredients span {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Order Button */
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order:hover {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #F4F1EA;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Northern Soul</h1>
+        <p>ข้าวซอยโฮมเมด รสชาติกลมกล่อม ในบรรยากาศอบอุ่นเป็นกันเอง</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="max-w-4xl mx-auto px-6 py-12 text-center">
-        <span class="text-xs uppercase font-semibold tracking-widest text-brand-secondary bg-stone-100 px-3 py-1 rounded-full">Authentic & Modern</span>
-        <h1 class="text-4xl md:text-5xl font-medium mt-4 mb-3 tracking-tight text-brand-text">ข้าวซอยลำๆ สไตล์คนรุ่นใหม่</h1>
-        <p class="text-brand-muted text-base max-w-md mx-auto">เข้มข้น หอมเครื่องแกงเชียงใหม่ บรรยากาศมินิมอลนั่งสบาย เหมาะสำหรับนัดเพื่อนหรืออ่านหนังสือ</p>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="max-w-4xl mx-auto px-6 py-8 flex-grow">
-        <div class="flex items-center justify-between mb-8 border-b border-stone-200 pb-4">
-            <h2 class="text-2xl font-medium tracking-tight">Our Menu</h2>
-            <span class="text-sm text-brand-muted">10 รายการแนะนำ</span>
-        </div>
-
-        <!-- Grid 10 Menus -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            <!-- Item 1 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h3 class="font-medium text-lg">ข้าวซอยไก่สูตรดั้งเดิม</h3>
-                            <span class="text-[10px] bg-brand-primary/10 text-brand-primary px-2 py-0.5 rounded-full font-medium">Recommended</span>
-                        </div>
-                        <p class="text-xs text-brand-muted mt-1">น่องไก่ชิ้นโต ตุ๋นนุ่มละลายในปาก กับน้ำซุปเข้มข้น</p>
+    <div class="container">
+        <h2 class="section-title">เมนูแนะนำของเรา</h2>
+        
+        <div class="menu-grid">
+            
+            <!-- Menu 1 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <!-- ใช้รูปตัวอย่างสไตล์มินิมอลจาก Unsplash -->
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยน่องไก่">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยน่องไก่ตุ๋น</span>
+                        <span class="menu-price">89.-</span>
                     </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿79</p>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> น่องไก่ติดสะโพกตุ๋นจนเปื่อยนุ่ม, บะหมี่เหลืองกรอบและเส้นนุ่ม, น้ำแกงกะทิเข้มข้นสูตรพิเศษ, เครื่องเคียง (หอมแดง, ผักกาดดอง, มะนาว, พริกทอด)
+                    </div>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
                 </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h3 class="font-medium text-lg">ข้าวซอยเนื้อน่องลาย</h3>
-                            <span class="text-[10px] bg-brand-primary/10 text-brand-primary px-2 py-0.5 rounded-full font-medium">Best Seller</span>
-                        </div>
-                        <p class="text-xs text-brand-muted mt-1">เนื้อน่องลายตุ๋นยาจีน 6 ชั่วโมง กรุบกรอบกำลังดี</p>
+            <!-- Menu 2 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเนื้อย่างออสเตรเลีย">
+                </div>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยเนื้อย่างมีเดียมแรร์</span>
+                        <span class="menu-price">139.-</span>
                     </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿99</p>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> เนื้อน่องลายสไลด์ย่างหอมๆ, เส้นข้าวซอยสูตรต้นตำรับ, น้ำแกงเข้มข้นกลิ่นเครื่องเทศชัดเจน, ไข่ต้มยางมะตูม, เครื่องเคียงครบชุด
+                    </div>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
                 </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">ข้าวซอยหมูกรอบ</h3>
-                        <p class="text-xs text-brand-muted mt-1">หมูกรอบสูตรพิเศษ หนังกรอบสนั่น ซึมซับน้ำข้าวซอย</p>
-                    </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿89</p>
+            <!-- Menu 3 -->
+            <div class="menu-card">
+                <div class="menu-img-container">
+                    <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=600&q=80" alt="ข้าวซอยเต้าหู้เห็ดรวม">
                 </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">ข้าวซอยทะเลต้มยำ</h3>
-                        <p class="text-xs text-brand-muted mt-1">กุ้งแม่น้ำและหมึกสด ตัดรสด้วยความเปรี้ยวเผ็ดสไตล์ต้มยำ</p>
+                <div class="menu-content">
+                    <div class="menu-header">
+                        <span class="menu-name">ข้าวซอยเต้าหู้เห็ดรวม (Vegan)</span>
+                        <span class="menu-price">79.-</span>
                     </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿119</p>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h3 class="font-medium text-lg">ข้าวซอยเต้าหู้เห็ดหอม</h3>
-                            <span class="text-[10px] bg-brand-secondary/15 text-brand-secondary px-2 py-0.5 rounded-full font-medium">Healthy</span>
-                        </div>
-                        <p class="text-xs text-brand-muted mt-1">สูตรมังสวิรัติ อุดมด้วยเห็ดหอมและเต้าหู้ทอดกรอบ</p>
+                    <div class="menu-ingredients">
+                        <span>ส่วนประกอบ:</span> เต้าหู้คานาอิโมะย่าง, เห็ดออรินจิและเห็ดชิเมจิผัดหอม, น้ำแกงสูตร Plant-based เข้มข้นกลมกล่อม, เส้นบะหมี่ผัก
                     </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿69</p>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">ข้าวซอยแห้งคั่วไก่</h3>
-                        <p class="text-xs text-brand-muted mt-1">เส้นข้าวซอยผัดซอสสูตรเข้มข้น หอมกลิ่นกระทะ</p>
-                    </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿79</p>
-                </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">เกี๊ยวกรอบซอสข้าวซอย</h3>
-                        <p class="text-xs text-brand-muted mt-1">ของทานเล่นยอดฮิต เกี๊ยวไส้แน่นจิ้มซอสแกงเข้มข้น</p>
-                    </div>
-                    <p class="text-brand-primary font-primary font-medium text-base mt-3">฿49</p>
-                </div>
-            </div>
-
-            <!-- Item 8 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">ไส้อั่วล้านนาคาเฟ่</h3>
-                        <p class="text-xs text-brand-muted mt-1">ไส้อั่วสมุนไพรสูตรโฮมเมด เสิร์ฟพร้อมผักสด</p>
-                    </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿59</p>
-                </div>
-            </div>
-
-            <!-- Item 9 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">ชาไทยนมสดเย็น</h3>
-                        <p class="text-xs text-brand-muted mt-1">ชาไทยหอมเข้มตัดรสเลี่ยน หวานน้อยกำลังดี</p>
-                    </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿45</p>
-                </div>
-            </div>
-
-            <!-- Item 10 -->
-            <div class="bg-brand-card p-5 rounded-2xl shadow-sm border border-stone-100 flex justify-between gap-4">
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-medium text-lg">น้ำเก๊กฮวยลำไยสด</h3>
-                        <p class="text-xs text-brand-muted mt-1">ดับร้อนด้วยน้ำเก๊กฮวยหวานหอม ใส่เนื้อลำไยจุกๆ</p>
-                    </div>
-                    <p class="text-brand-primary font-medium text-base mt-3">฿40</p>
+                    <a href="#order" class="btn-order">สั่งเมนูนี้</a>
                 </div>
             </div>
 
         </div>
-    </section>
+    </div>
 
-    <!-- Info / Footer Section -->
-    <footer id="contact" class="bg-stone-100 mt-16 border-t border-stone-200">
-        <div class="max-w-4xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-6 text-sm text-brand-muted">
-            <div>
-                <h4 class="font-medium text-brand-text mb-2 text-base">Lanna Eats - Chiang Mai</h4>
-                <p>ย่านหลัง มช. ถนนสุเทพ อ.เมือง จ.เชียงใหม่</p>
-                <p class="mt-1">เปิดทุกวัน: 10:00 - 20:00 น.</p>
-            </div>
-            <div>
-                <h4 class="font-medium text-brand-text mb-2 text-base">ติดต่อ / ติดตาม</h4>
-                <p>Instagram: @lannaeats.cnx</p>
-                <p class="mt-1">โทร: 08X-XXX-XXXX</p>
-            </div>
-        </div>
-        <div class="text-center py-4 text-xs text-stone-400 border-t border-stone-200/60">
-            © 2026 Lanna Eats. All rights reserved.
-        </div>
+    <footer>
+        <p>© 2026 Northern Soul Cafe & Eatery. Open Daily 10.00 - 20.00</p>
     </footer>
 
 </body>
